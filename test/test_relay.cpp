@@ -7,9 +7,9 @@ void setup() {
     delay(1000);
 
     pinMode(RELAY_PIN, OUTPUT);
-    digitalWrite(RELAY_PIN, LOW); // fan isključen na startu
+    digitalWrite(RELAY_PIN, LOW);
 
-    Serial.println("Relay test spreman.");
+    Serial.println("Relay test ready.");
 }
 
 void loop() {

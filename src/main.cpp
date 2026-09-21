@@ -18,7 +18,7 @@ void showStatus(float temp, bool isCooling)
 
     tft.setTextSize(2);
     tft.setCursor(10, 10);
-    tft.println("Food Temp:");
+    tft.println("Food temp:");
 
     tft.setTextSize(3);
     tft.setCursor(10, 50);
@@ -45,13 +45,13 @@ void setup()
     delay(1000);
 
     pinMode(RELAY_PIN, OUTPUT);
-    digitalWrite(RELAY_PIN, LOW); // fan isključen na startu
+    digitalWrite(RELAY_PIN, LOW); //start with fan turned off
 
-    Wire.begin(21, 22); // SDA, SCL
+    Wire.begin(21, 22); //SDA, SCL
 
     if (!mlx.begin())
     {
-        Serial.println("Ne mogu pronaći MLX90614 senzor. Provjeri spajanje!");
+        Serial.println("Can't find MLX90614 sensor. Check your wiring!");
         while (1)
         {
             delay(1000);
@@ -66,7 +66,7 @@ void setup()
     tft.setCursor(10, 10);
     tft.println("Ready!");
 
-    Serial.println("Senzor, displej i relay spremni.");
+    Serial.println("Sensor, display and relay ready.");
 }
 
 void loop()
@@ -86,7 +86,7 @@ void loop()
 
     showStatus(objectTemp, isCooling);
 
-    Serial.print("Temperatura hrane: ");
+    Serial.print("Food: ");
     Serial.print(objectTemp);
     Serial.print(" °C | Fan: ");
     Serial.println(isCooling ? "ON" : "OFF");

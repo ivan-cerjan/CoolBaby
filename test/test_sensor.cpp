@@ -8,7 +8,7 @@ void setup() {
     Serial.begin(115200);
     delay(1000);
 
-    Wire.begin(21, 22); // SDA, SCL
+    Wire.begin(21, 22); //SDA, SCL
 
     if (!mlx.begin()) {
         Serial.println("Can't find MLX90614 sensor. Check wires!");

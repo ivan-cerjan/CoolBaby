@@ -40,6 +40,7 @@ Each hardware component has a standalone test in `test/`, useful for isolating w
 pio run -e test_sensor --target upload    # MLX90614 sensor only
 pio run -e test_display --target upload   # TFT display only
 pio run -e test_relay --target upload     # Relay/fan only
+
 pio device monitor
 ```
 
