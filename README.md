@@ -1,10 +1,13 @@
 # CoolBaby
 
-An ESP32-based device that reads food temperature with a non-contact IR sensor and blows a fan until it's safe to serve.
+An ESP32-based device that reads baby food temperature with a no contact IR sensor and blows a fan until it's safe to serve.
 
 ![Platform](https://img.shields.io/badge/platform-ESP32-blue)
 ![Framework](https://img.shields.io/badge/framework-Arduino-teal)
 ![Build](https://img.shields.io/badge/build-PlatformIO-orange)
+
+## Why
+I'm tired of blowing on my kids food all the time.
 
 ## Quick Look
 
@@ -26,8 +29,8 @@ An ESP32-based device that reads food temperature with a non-contact IR sensor a
 | Microcontroller | ESP32 Board (ELEGOO ESP-WROOM-32) |
 | Temperature sensor | Hailege MLX90614 non-contact IR sensor |
 | Display | 1.8" TFT LED display (GERUI 128x160, ST7735 driver) |
-| Relay | ELEGOO 4-Channel 5V Relay Module |
-| Fan | 5V DC cooling fan (30-40mm) |
+| Relay | ELEGOO 4-Channel 5V Relay Module (probably an overkill but it's what I had) |
+| Fan | Any 5V DC cooling fan (I use 30-40mm) |
 
 ## Testing hardware
 
