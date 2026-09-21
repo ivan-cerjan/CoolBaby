@@ -8,7 +8,7 @@ An ESP32-based device that reads food temperature with a non-contact IR sensor a
 
 ## Quick Look
 
-- **What it does:** Measures food temperature without touching it, shows it live on a TFT screen, and (soon) runs a fan automatically until the food cools to a safe temperature
+- **What it does:** Measures food temperature without touching it, shows it live on a TFT screen, and runs a fan automatically until the food cools to a safe temperature
 - **Hardware:** ESP32 + MLX90614 IR temperature sensor + TFT display + relay-controlled fan
 - **Software:** Built with VSCode + PlatformIO
 
@@ -16,7 +16,7 @@ An ESP32-based device that reads food temperature with a non-contact IR sensor a
 
 - Non-contact temperature reading via the MLX90614 IR sensor (I2C)
 - Live temperature readout on a TFT display
-- Automatic fan control via relay once a temperature threshold is set
+- Automatic fan control via relay once a temperature threshold is exceeded
 - Non-blocking main loop using `millis()` timing
 
 ## Hardware
@@ -36,6 +36,7 @@ Each hardware component has a standalone test in `test/`, useful for isolating w
 ```bash
 pio run -e test_sensor --target upload    # MLX90614 sensor only
 pio run -e test_display --target upload   # TFT display only
+pio run -e test_relay --target upload     # Relay/fan only
 pio device monitor
 ```
 
@@ -112,7 +113,8 @@ CoolBaby/
 │ └── main.cpp # Main application logic
 ├── test/
 │ ├── test_sensor.cpp # Standalone MLX90614 sensor test
-│ └── test_display.cpp # Combined sensor + display test
+│ ├── test_display.cpp # Combined sensor + display test
+│ └── test_relay.cpp # Standalone relay/fan test
 ├── platformio.ini # PlatformIO project configuration
 ├── README.md
 └── .gitignore
@@ -121,10 +123,10 @@ CoolBaby/
 
 ## Roadmap
 
-- [ ] Relay/fan control based on temperature threshold
 - [ ] Hysteresis to avoid relay flickering near threshold
 - [ ] Adjustable temperature threshold
 - [ ] Status LED indicator
+- [ ] Stronger fan for better airflow
 
 ## License
 
