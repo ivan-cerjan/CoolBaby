@@ -1,26 +1,27 @@
 # CoolBaby
 
-An ESP32-based device that reads baby food temperature with a no contact IR sensor and blows a fan until it's safe to serve.
+An ESP32-based device that reads baby food temperature with a no-contact IR sensor and blows a fan until it's safe to serve.
 
 ![Platform](https://img.shields.io/badge/platform-ESP32-blue)
 ![Framework](https://img.shields.io/badge/framework-Arduino-teal)
 ![Build](https://img.shields.io/badge/build-PlatformIO-orange)
 
 ## Why
-I'm tired of blowing on my kids food all the time.
+
+I got tired of blowing on my kid's food like a human fan. Turns out I had spare ESP32s lying around from another project, so here we are.
 
 ## Quick Look
 
-- **What it does:** Measures food temperature without touching it, shows it live on a TFT screen, and runs a fan automatically until the food cools to a safe temperature
+- **What it does:** Points at food, tells you its temperature, and blasts it with a fan until it's safe to shove in a toddler's mouth
 - **Hardware:** ESP32 + MLX90614 IR temperature sensor + TFT display + relay-controlled fan
-- **Software:** Built with VSCode + PlatformIO
+- **Software:** VSCode + PlatformIO
 
 ## Features
 
-- Non-contact temperature reading via the MLX90614 IR sensor (I2C)
+- Non-contact temperature reading via the MLX90614 IR sensor (I2C) — no need to poke the food
 - Live temperature readout on a TFT display
-- Automatic fan control via relay once a temperature threshold is exceeded
-- Non-blocking main loop using `millis()` timing
+- Fan kicks in automatically once the food's too hot, no button pressing required
+- Non-blocking main loop, because `delay()` is for cowards
 
 ## Hardware
 
@@ -29,12 +30,12 @@ I'm tired of blowing on my kids food all the time.
 | Microcontroller | ESP32 Board (ELEGOO ESP-WROOM-32) |
 | Temperature sensor | Hailege MLX90614 non-contact IR sensor |
 | Display | 1.8" TFT LED display (GERUI 128x160, ST7735 driver) |
-| Relay | ELEGOO 4-Channel 5V Relay Module (probably an overkill but it's what I had) |
-| Fan | Any 5V DC cooling fan (I use 30-40mm) |
+| Relay | ELEGOO 4-Channel 5V Relay Module (way overkill for one fan, but it's what I had) |
+| Fan | Any 5V DC cooling fan (I'm using a 30-40mm one) |
 
 ## Testing hardware
 
-Each hardware component has a standalone test in `test/`, useful for isolating wiring issues without running the full application.
+Each component has its own standalone test in `test/` — handy for figuring out which wire you messed up without running the whole thing.
 
 ```bash
 pio run -e test_sensor --target upload    # MLX90614 sensor only
@@ -107,7 +108,7 @@ Fan connects through the relay's NO/COM contacts, powered from the same 5V sourc
    pio run --target upload
    pio device monitor
 ```
-   or use the PlatformIO extension for VSCode
+   or use the PlatformIO extension for VSCode, seriously it's great
 
 ## Project Structure
 ```
