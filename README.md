@@ -1,6 +1,6 @@
-# CoolBaby
+# CoolBaby 🍼❄️
 
-An ESP32-based device that reads baby food temperature with a no-contact IR sensor and blows a fan until it's safe to serve.
+An ESP32 device that reads baby food temperature with a no-contact IR sensor and blows a fan until it's safe to serve.
 
 ![Platform](https://img.shields.io/badge/platform-ESP32-blue)
 ![Framework](https://img.shields.io/badge/framework-Arduino-teal)
@@ -18,7 +18,7 @@ I got tired of blowing on my kid's food like a human fan. Turns out I had spare 
 
 ## Features
 
-- Non-contact temperature reading via the MLX90614 IR sensor (I2C) — no need to poke the food
+- Non-contact temperature reading via the MLX90614 IR sensor (I2C), no need to poke the food
 - Live temperature readout on a TFT display
 - Fan kicks in automatically once the food's too hot, no button pressing required
 - Non-blocking main loop, because `delay()` is for cowards
@@ -35,7 +35,7 @@ I got tired of blowing on my kid's food like a human fan. Turns out I had spare 
 
 ## Testing hardware
 
-Each component has its own standalone test in `test/` — handy for figuring out which wire you messed up without running the whole thing.
+Each component has its own standalone test in `test/`, handy for figuring out which wire you messed up without running the whole thing.
 
 ```bash
 pio run -e test_sensor --target upload    # MLX90614 sensor only
@@ -97,8 +97,8 @@ Fan connects through the relay's NO/COM contacts, powered from the same 5V sourc
 
 ### Prerequisites
 
-- [PlatformIO](https://platformio.org/) (VSCode extension or CLI)
 - ESP32 board, MLX90614 sensor, TFT display, and relay wired per the diagram above
+- [PlatformIO](https://platformio.org/) (VSCode extension or CLI)
 
 ### Setup
 
@@ -129,9 +129,9 @@ CoolBaby/
 ## Roadmap
 
 - [ ] Hysteresis to avoid relay flickering near threshold
-- [ ] Adjustable temperature threshold
-- [ ] Status LED indicator
-- [ ] Stronger fan for better airflow
+- [ ] Adjustable temperature threshold with hardware 
+- [ ] Status LED indicator indicating hot/cold
+- [ ] Stronger fan for better airflow, possibly a 12V one
 
 ## License
 
