@@ -38,9 +38,10 @@ I got tired of blowing on my kid's food like a human fan. Turns out I had spare 
 Each component has its own standalone test in `test/`, handy for figuring out which wire you messed up without running the whole thing.
 
 ```bash
-pio run -e test_sensor --target upload    # MLX90614 sensor only
-pio run -e test_display --target upload   # TFT display only
-pio run -e test_relay --target upload     # Relay/fan only
+pio run -e test_wiring_integration --target upload #Test wiring 
+pio run -e test_sensor --target upload             #MLX90614 sensor only
+pio run -e test_display --target upload            #TFT display only
+pio run -e test_relay --target upload              #Relay/fan only
 
 pio device monitor
 ```
@@ -115,12 +116,13 @@ Fan connects through the relay's NO/COM contacts, powered from the same 5V sourc
 CoolBaby/
 ├── include/
 ├── src/
-│ └── main.cpp # Main application logic
+│ └── main.cpp #Main application logic
 ├── test/
-│ ├── test_sensor.cpp # Standalone MLX90614 sensor test
-│ ├── test_display.cpp # Combined sensor + display test
-│ └── test_relay.cpp # Standalone relay/fan test
-├── platformio.ini # PlatformIO project configuration
+│ ├── test_sensor.cpp #Standalone MLX90614 sensor test
+│ ├── test_display.cpp # ombined sensor + display test
+│ ├── test_relay.cpp #Standalone relay/fan test
+| └── test_wiring_integration.cpp # iring test
+├── platformio.ini #PlatformIO project configuration
 ├── README.md
 └── .gitignore
 ```
